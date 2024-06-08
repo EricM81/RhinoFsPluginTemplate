@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <WarnOn>3390;$(WarnOn)</WarnOn>
+        <TargetFramework>net481</TargetFramework>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{42A5B4D8-428C-46C2-9D03-51A626FB06CE}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <RootNamespace>FSharpRhinoPlayground</RootNamespace>
+        <AssemblyName>FSharpRhinoPlayground</AssemblyName>
+        <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <TargetExt>.rhp</TargetExt>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <Optimize>false</Optimize>
+        <Tailcalls>false</Tailcalls>
+        <OutputPath>bin\$(Configuration)\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <WarningLevel>3</WarningLevel>
+        <OtherFlags>--warnon:1182</OtherFlags>
+        <TargetExt>.rhp</TargetExt>
+        <StartProgram>C:\Program Files\Rhino 7\System\Rhino.exe</StartProgram>
+        <StartArguments>C:\Users\EricM\Documents\CAD\_Development\v7TestDoc.3dm</StartArguments>
+        <StartAction>Program</StartAction>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <Tailcalls>true</Tailcalls>
+        <OutputPath>bin\$(Configuration)\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <WarningLevel>3</WarningLevel>
+        <OtherFlags>--warnon:1182</OtherFlags>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <Compile Include="AssemblyInfo.fs"/>
+        <Compile Include="PluginFs.fs" />
+        <Compile Include="Cmd1.fs" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="EmbeddedResources\plugin-utility.ico">
+          <Generator>ResXFileCodeGenerator</Generator>
+      </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Update="FSharp.Core" Version="8.0.300" />
+        <PackageReference Include="RhinoCommon" Version="7.34.23267.11001" />
+    </ItemGroup>
+    
+</Project>
